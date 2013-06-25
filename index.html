@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="css/main.css">
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+		   <script src="js/ssm.js"></script>
+		   
+		   		<script>
+				
+				(function () {
+			function ResponsivenessGenerator(ide)
+			{
+			
+			
+			//
+$( ".custom_responsive" ).each(function( index ) {
+$(this).remove();
+});
+			
+
+
+var cssFolder="css";
+var f1="pc.css";
+var f2="mobile.css";
+var f3="tablet.css";
+
+
+var uv = document.createElement('link');
+//uv.type = 'text/css';
+$(uv).attr("rel","stylesheet");
+$(uv).attr("identifier","pc");
+$(uv).attr("class","custom_responsive");
+
+
+
+$(uv).attr("href",cssFolder+"/"+ide+".css");
+
+
+
+
+
+var s = document.getElementsByTagName('link')[0];
+$(s).parent().append(uv);
+
+//
+	
+			}	
+			
+
+
+
+		ssm.addStates([
+    {id: 'mobile', width: 767, onEnter: function(){
+	console.log('enter mobile');
+	ResponsivenessGenerator("mobile");
+	}},
+    {id: 'tablet',width: 1023, onEnter: function(){
+	console.log('enter tablet');
+		ResponsivenessGenerator("tablet");
+	}},
+    {id: 'desktop',width: 9999, onEnter: function(){
+	console.log('enter desktop');
+		ResponsivenessGenerator("pc");
+	}}
+]).ready();
+
+})();	
+		</script>
+    </head>
+    <body>
+
+     <h1>
+	 Sample Example of Responsive Design By Ahmad.Abdel.Naser.Hammad
+	 </h1>
+
+	 <div class="container">
+	 
+	 </div>
+
+		
+		
+		
+    </body>
+</html>
